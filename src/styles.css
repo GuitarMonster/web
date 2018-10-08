@@ -1,4 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto', sans-serif; }
+/* Variables */
+
+html {
+  --toolbar-row-height: 64px;
+  --main-background-color: #fafafa;
+  --sidebar-background-color: #fff;
+  --sidebar-width: 250px;
+}
+
+/* Main */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Toolbar */
+
+mat-toolbar.mat-toolbar-multiple-rows {
+  min-height: var(--toolbar-row-height);
+}
+
+mat-toolbar-row.mat-toolbar-row {
+  height: var(--toolbar-row-height);
+}
+
+.toolbar-item {
+  text-align: center;
+  min-width: 40px;
+  margin: 0 10px;
+}
+
+.toolbar-item mat-icon {
+  vertical-align: text-bottom;
+  color: white;
+}
+
+/* Sidenav */
+
+mat-sidenav-container {
+  height: calc(100% - var(--toolbar-row-height));
+  width: 100%;
+}
+
+mat-sidenav {
+  width: var(--sidebar-width);
+  background-color: var(--sidebar-background-color);
+}
+
+mat-sidenav-content {
+  background-color: var(--main-background-color);
+}
