@@ -45,6 +45,10 @@ mat-toolbar-row.mat-toolbar-row {
   color: white;
 }
 
+.toolbar-item.button-wrapper {
+  min-width: 88px;
+}
+
 /* Sidenav */
 
 mat-sidenav-container {
