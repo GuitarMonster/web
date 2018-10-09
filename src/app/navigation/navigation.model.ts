@@ -1,9 +1,7 @@
 export class MenuItem {
-  name = '';
-  link = '';
+  constructor(public name = '', public link = '') {}
 }
 
 export class MenuCategory {
-  name = '';
-  items: MenuItem[] = [];
+  constructor(public name = '', public items: MenuItem[] = []) {}
 }

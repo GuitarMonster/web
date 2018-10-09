@@ -7,6 +7,7 @@ import { MaterialModule } from './shared/material.module';
 import { RoutingModule } from './routing.module';
 import { OverviewComponent } from './overview/overview.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { NavigationService } from './navigation/navigation.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { NavigationComponent } from './navigation/navigation.component';
     MaterialModule,
     RoutingModule,
   ],
-  providers: [],
+  providers: [NavigationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

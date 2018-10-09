@@ -59,8 +59,13 @@ mat-sidenav-container {
 mat-sidenav {
   width: var(--sidebar-width);
   background-color: var(--sidebar-background-color);
+  padding: 10px;
 }
 
 mat-sidenav-content {
   background-color: var(--main-background-color);
+}
+
+mat-sidenav div.mat-expansion-panel-body {
+  padding: 0;
 }

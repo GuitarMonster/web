@@ -1,5 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { MenuCategory } from './navigation/navigation.model';
+import { NavigationService } from './navigation/navigation.service';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +12,10 @@ export class AppComponent implements OnInit, OnDestroy {
   showButton = false;
   showSidenav = false;
   routeChangeSub: any = null;
+  menuSub: any = null;
+  menuCategories: MenuCategory[] = null;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private navigationService: NavigationService) {}
 
   ngOnInit() {
     this.routeChangeSub = this.router.events.subscribe(event => {
@@ -26,11 +30,17 @@ export class AppComponent implements OnInit, OnDestroy {
       }
     });
 
+    this.menuSub = this.navigationService.menuCategories.subscribe(categories => {
+      this.menuCategories = categories;
+    });
   }
 
   ngOnDestroy() {
     if (this.routeChangeSub) {
       this.routeChangeSub.unsubscribe();
+    }
+    if (this.menuSub) {
+      this.menuSub.unsubscribe();
     }
   }
 }
