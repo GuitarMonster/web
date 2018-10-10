@@ -12,7 +12,9 @@
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav #sidenav [opened]="showSidenav" mode="side">
-    <app-navigation [menuCategories]="menuCategories"></app-navigation>
+    <mat-accordion displayMode="default" [multi]="true" [hideToggle]="false">
+      <app-menu-item *ngFor="let item of menuData" [item]="item"></app-menu-item>
+    </mat-accordion>
   </mat-sidenav>
   <mat-sidenav-content>
     <router-outlet></router-outlet>

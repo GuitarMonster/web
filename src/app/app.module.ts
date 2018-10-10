@@ -6,14 +6,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
 import { RoutingModule } from './routing.module';
 import { OverviewComponent } from './overview/overview.component';
-import { NavigationComponent } from './navigation/navigation.component';
 import { NavigationService } from './navigation/navigation.service';
+import { MenuItemComponent } from './navigation/menu-item/menu-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OverviewComponent,
-    NavigationComponent
+    MenuItemComponent
   ],
   imports: [
     BrowserModule,

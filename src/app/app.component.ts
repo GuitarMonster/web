@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { MenuCategory } from './navigation/navigation.model';
+import { MenuItem } from './navigation/navigation.model';
 import { NavigationService } from './navigation/navigation.service';
 
 @Component({
@@ -12,8 +12,9 @@ export class AppComponent implements OnInit, OnDestroy {
   showButton = false;
   showSidenav = false;
   routeChangeSub: any = null;
+
+  menuData: MenuItem[] = null;
   menuSub: any = null;
-  menuCategories: MenuCategory[] = null;
 
   constructor(private router: Router, private navigationService: NavigationService) {}
 
@@ -30,8 +31,8 @@ export class AppComponent implements OnInit, OnDestroy {
       }
     });
 
-    this.menuSub = this.navigationService.menuCategories.subscribe(categories => {
-      this.menuCategories = categories;
+    this.menuSub = this.navigationService.menuData.subscribe(data => {
+      this.menuData = data;
     });
   }
 

@@ -1,0 +1,15 @@
+
+<mat-expansion-panel *ngIf="item.children || item.linkChildren" [hideToggle]="false">
+  <mat-expansion-panel-header [ngClass]="'level-' + item.level">{{item.name}}</mat-expansion-panel-header>
+  <mat-accordion *ngIf="item.children" displayMode="default" [multi]="true" [hideToggle]="false">
+    <app-menu-item *ngFor="let child of item.children" [item]="child"></app-menu-item>
+  </mat-accordion>
+  <mat-nav-list *ngIf="item.linkChildren">
+    <app-menu-item *ngFor="let linkChild of item.linkChildren" [item]="linkChild"></app-menu-item>
+  </mat-nav-list>
+</mat-expansion-panel>
+
+<mat-list-item [ngClass]="'level-' + item.level" *ngIf="!item.children && !item.linkChildren">
+  <a [ngClass]="'level-' + item.level" matLine [routerLink]="['/' + item.link]" routerLinkActive="active" routerLinkActive="active">{{item.name}}</a>
+</mat-list-item>
+

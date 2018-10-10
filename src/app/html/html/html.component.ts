@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationService } from '../../navigation/navigation.service';
-import { MenuCategory, MenuItem } from '../../navigation/navigation.model';
+import { MenuItem } from '../../navigation/navigation.model';
 
 @Component({
   selector: 'app-html',
@@ -8,21 +8,25 @@ import { MenuCategory, MenuItem } from '../../navigation/navigation.model';
   styleUrls: ['./html.component.css']
 })
 export class HtmlComponent implements OnInit {
-  private menuCategories: MenuCategory[] = [
-    new MenuCategory('Tutorials', [
-      new MenuItem('Getting started', 'getting-started')
+  private menuData: MenuItem[] = [
+    new MenuItem('Tutorials', 1, null, [
+      new MenuItem('Beginner', 2, null, null, [
+        new MenuItem('Link', 3, 'link', null, null)
+      ]),
+      new MenuItem('Intermediate', 2, null, null, []),
+      new MenuItem('Advanced', 2, null, null, [])
     ]),
-    new MenuCategory('References', [
-      new MenuItem('Tags', 'tags'),
-      new MenuItem('Attributes', 'attributes'),
-      new MenuItem('Characters', 'characters'),
+    new MenuItem('References', 1, null, [
+      new MenuItem('Tags', 2, null, null, []),
+      new MenuItem('Attributes', 2, null, null, []),
+      new MenuItem('Characters', 2, null, null, []),
     ])
   ];
 
   constructor(protected navigationService: NavigationService) { }
 
   ngOnInit() {
-    this.navigationService.menuCategories.next(this.menuCategories);
+    this.navigationService.menuData.next(this.menuData);
   }
 
 }

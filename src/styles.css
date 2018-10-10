@@ -69,3 +69,23 @@ mat-sidenav-content {
 mat-sidenav div.mat-expansion-panel-body {
   padding: 0;
 }
+
+mat-sidenav .mat-nav-list .mat-list-item div.mat-list-item-content {
+  padding: 0 24px;
+}
+
+.mat-expansion-panel-header {
+  height: 24px;
+}
+
+.mat-expansion-panel-header.mat-expanded {
+  height: 42px;
+}
+
+.level-2 {
+  margin-left: 12px;
+}
+
+.level-3 {
+  margin-left: 24px;
+}
